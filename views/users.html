@@ -1,0 +1,10 @@
+{% extends "layout.html" %} {% block content %}
+<br></br>
+<h3>Our Proud Editors!</h3>
+<hr>
+<ul class="list-unstyled">
+    {% for user in users %}
+    <li><a href="/users/{{ user.dataValues.id }}">{{ user.dataValues.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

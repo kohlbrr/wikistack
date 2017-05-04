@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -e html,js,css ./app.js"
+    "start": "nodemon -e html,js,css ./app.js",
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
@@ -13,13 +14,19 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "marked": "^0.3.6",
     "morgan": "^1.8.1",
     "nunjucks": "^3.0.0",
+    "nunjucks-autoescape": "^1.0.1",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "chai": "^3.5.0",
+    "chai-spies": "^0.7.1",
+    "mocha": "^3.3.0",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }

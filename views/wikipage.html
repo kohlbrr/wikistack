@@ -1,13 +1,14 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block content %}
+<br></br>
+<h3>{{page.dataValues.title}} <small> (<a href="{{similar}}">Similar</a>)</small></h3>
+<h4>by <a href={{userLink}}>{{page.dataValues.author.name}}</a></h4>
+<div>
+    <h4> Tags </h4>
+    <p>{% for tag in page.dataValues.tags %} {{tag}} {% endfor %} </p>
+</div>
+<hr/>
+<div class="page-body">{% autoescape false %} {{page.renderedContent}} {% endautoescape %}</div>
+<hr/>
 
-{% block content %}
-  <h3>PLACEHOLDER PAGE TITLE <small> (<a href="PLACEHOLDER_URL_TITLE/similar">Similar</a>)</small></h3>
-  <h4>by <a href="PLACEHOLDER-AUTHOR-URL">PLACEHOLDER AUTHOR NAME</a></h4>
-  <div>PLACEHOLDER TAG LIST</div>
-  <hr/>
-  <div>PLACEHOLDER AUTHOR NAME WITH LINK TO AUTHOR PAGE</div>
-  <div class="page-body">PLACEHOLDER PAGE CONTENT</div>
-  <hr/>
-  <a href="PLACEHOLDER_URL_TITLE/edit" class="btn btn-primary">edit this page</a>
-  <a href="PLACEHOLDER_URL_TITLE/delete" class="btn btn-danger">delete this page</a>
-{% endblock %}
+<a href="PLACEHOLDER_URL_TITLE/edit" class="btn btn-primary">edit this page</a>
+<a href="PLACEHOLDER_URL_TITLE/delete" class="btn btn-danger">delete this page</a> {% endblock %}

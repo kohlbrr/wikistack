@@ -1,0 +1,13 @@
+{% extends "layout.html" %} {% block content %}
+<br></br>
+<h3>{{name}} <small>
+    </small></h3>
+<h4>Contact at: <a href={{email}}>{{email}}</a></h4>
+<div>This user's articles:</div>
+<ul class="list-unstyled">
+    {% for page in pages %}
+    <li><a href={{page}}>{{page.dataValues.title}}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

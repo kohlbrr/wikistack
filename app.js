@@ -8,15 +8,16 @@ var path = require('path');
 var mime = require('mime');
 var bodyParser = require('body-parser');
 var routes = require('./routes')
-
+var AutoEscapeExtension = require("nunjucks-autoescape")(nunjucks);
 
 // templating boilerplate setup
 app.engine('html', nunjucks.render);
 app.set('view engine', 'html');
-nunjucks.configure('views', { noCache: true });
+var env = nunjucks.configure('views', { noCache: true });
+env.addExtension('AutoEscapeExtension', new AutoEscapeExtension(env));
 
 // logging middleware
-app.use(morgan("default"));
+app.use(morgan("combined"));
 
 // body parsing middleware
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,3 +36,5 @@ models.User.sync()
     .catch(console.error);
 
 app.use("/", routes)
+
+module.exports = app;
